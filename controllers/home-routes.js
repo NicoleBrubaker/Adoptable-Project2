@@ -1,8 +1,15 @@
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-  // TODO: Render template with Sequelize data
   res.render("homepage");
+});
+
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
+
+router.get("/user", async (req, res) => {
+  res.render("user");
 });
 
 module.exports = router;

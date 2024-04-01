@@ -10,12 +10,38 @@
 </head>
 
 <body>
+
+ <!-- Navigation bar -->
+<nav class="bg-white shadow">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="flex h-16 justify-between">
+      <div class="flex">
+        <div class="flex items-center">
+          <a href="/">
+          <img class="h-10 w-auto" src="/icons/dog.png" alt="Dog Icon">
+          </a>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <a href="#" class="inline-flex items-center border-b-2 border-emerald-700 px-1 pt-1 text-sm font-medium text-gray-900">View Available Dogs</a>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <a href="/login">Login</a>
+      <div class="hidden sm:ml-6 sm:flex sm:items-center">
+        <a href="/user" class="relative p-1" id="allFavorites">
+         <img class="h-8 w-auto" src="/icons/user.png" alt="User Icon">
+        </a>
+    </div>
+    </div>
+  </div>
+</nav>
+
   <main>
     {{{ body }}}
   </main>
 
 <!-- Footer -->
-<footer class="bg-emerald-700 h-20 flex items-center">
+<footer class="bg-emerald-700 h-20 flex items-center fixed inset-x-0 bottom-0">
 <div class="mx-auto max-w-7xl px-4 text-center">
       <p class="text-sm text-white">Dog Adoption Finder 2024</p>
       </div>
