@@ -5,6 +5,7 @@ let currentToken = {
   expiry: Date.now(),
 };
 
+// Getting a new token for PetFinder API
 async function refreshToken() {
   const fetch = (await import("node-fetch")).default;
   const response = await fetch("https://api.petfinder.com/v2/oauth2/token", {
@@ -17,16 +18,17 @@ async function refreshToken() {
   });
   const data = await response.json();
   currentToken.value = data.access_token;
-  // Assuming the token expires in 1 hour; adjust as per the actual token expiry
   currentToken.expiry =
     Date.now() + data.expires_in * 1000 || Date.now() + 3600000;
   return currentToken.value;
 }
 
+// Checks if new token is needed
 function isTokenValid() {
   return currentToken.value && currentToken.expiry > Date.now();
 }
 
+// If token is expired, get a new token
 async function getToken() {
   if (!isTokenValid()) {
     await refreshToken();
