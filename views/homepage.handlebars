@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Installing Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Dog Adoption Finder</title>
-  </head>
-
-  <body>
-    <!-- Navigation bar displaying logo and favorites button -->
+ <!-- Navigation bar -->
 <nav class="bg-white shadow">
   <div class="mx-auto max-w-7xl px-4">
     <div class="flex h-16 justify-between">
       <div class="flex">
         <div class="flex items-center">
-          <img class="h-10 w-auto" src="./assets/icons/dog.png" alt="Dog Icon">
+          <img class="h-10 w-auto" src="/icons/dog.png" alt="Dog Icon">
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
           <a href="#" class="inline-flex items-center border-b-2 border-emerald-700 px-1 pt-1 text-sm font-medium text-gray-900">View Available Dogs</a>
@@ -23,51 +12,11 @@
       </div>
       <div class="hidden sm:ml-6 sm:flex sm:items-center">
         <button type="button" id="allFavorites" class="relative p-1">
-          <span class="sr-only">View favorites</span>
+          <span class="sr-only">View your profile</span>
          <img class="h-8 w-auto" src="./assets/icons/heart.png" alt="Heart Icon">
         </button>
     </div>
-
-    <!-- Favorites Modal -->
-<div id="favoritesModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-  <div class="relative top-20 mx-auto p-5 border w-3/5 shadow-lg rounded-md bg-white">
-    <div class="flex justify-between items-center">
-      <h3 class="text-lg leading-6 font-semibold text-xl text-emerald-800">Favorites</h3>
-      <button type="button" id="closeModal" class="text-gray-700 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
-        <span class="sr-only">Close</span>
-        X
-      </button>
-    </div>
-      <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle inline-block min-w-full lg:px-8">
-            <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                  <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Breed</th>
-                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">URL</th>
-                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider"></th>
-
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <!-- Rows Placeholder -->
-                  <tr>
-                    <td id="favoritesName" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                    <td id="favoritesBreed" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
-                    <td id="favoritesURL" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
-</div>
-</div>
 </nav>
 
 <!-- Header section text -->
@@ -78,7 +27,7 @@
   </p>
 </div>
 
-<!-- Breed input form - entered value passed to APIs -->
+<!-- Breed input form - entered value should get passed to APIs -->
 <div class="flex justify-center mt-8">
   <div class="items-center space-x-2">
     <form id="breedTypeForm">
@@ -153,17 +102,7 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-emerald-700 h-20 flex items-center">
-<div class="mx-auto max-w-7xl px-4 text-center">
-      <p class="text-sm text-white">Dog Adoption Finder 2024</p>
-      </div>
-</footer>
-
 <!-- JavaScript files -->
     <script src="./assets/js/nicole.js"></script>
     <script src="./assets/js/jordan.js"></script>
     <script src="./assets/js/angel.js"></script>
-
-  </body>
-</html>
