@@ -17,3 +17,5 @@
 ### Clone 
 
 ### Basic Stepts: 
+
+## Technologies Used
