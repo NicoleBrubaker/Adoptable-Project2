@@ -19,3 +19,5 @@
 ### Basic Stepts: 
 
 ## Technologies Used
+
+## External Resources 
