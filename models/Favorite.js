@@ -14,8 +14,8 @@ Favorite.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
     name: {
@@ -31,6 +31,10 @@ Favorite.init(
       allowNull: false,
     },
     age: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    gender: {
       type: DataTypes.STRING,
       allowNull: true,
     },
