@@ -28,6 +28,11 @@
 - PetFinder API
 
 ## External Resources 
+- [PetFinder API] (https://www.petfinder.com/developers/) for adoption services. 
+- Icons Link: [Icons] (https://icons8.com/icons/)
+- [Tailwind] (https://tailwindui.com/?ref=top)
+- [MySql] (https://dev.mysql.com/downloads/mysql/) download link if needed. 
+
 
 ## License 
 This project is licensed under the [MIT License] (LICENSE). See the LICENSE file for more details. 
