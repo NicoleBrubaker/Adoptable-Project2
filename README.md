@@ -9,14 +9,27 @@
 ## 🔗 Key Features
 
 ## 📚 Useful Links 
+- **Repository**: [GitHub] (https://github.com/NicoleBrubaker/Adoptable-Project2)
+- **Live Application**: [Adoptable Pets] ()
 
 ## Usage 
 
 ### 🛠️ Installation and Setup 
+1. Clone the repository to your local machine. 
+2. Install necessary dependencies (if any).
+3. Run the application locally or deploy it using your preferred web server. 
+
 
 ### Clone 
 
+```bash
+    git@github.com:NicoleBrubaker/Adoptable-Project2.git
+```
+
 ### Basic Stepts: 
+1. Open up the web application.
+2.  git@github.com:NicoleBrubaker/Adoptable-Project2.git
+3. 
 
 ## Technologies Used
 - HTML 
