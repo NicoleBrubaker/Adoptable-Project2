@@ -19,6 +19,13 @@
 ### Basic Stepts: 
 
 ## Technologies Used
+- HTML 
+- Tailwind CSS
+- Tailwind UI
+- JavaScript
+- JSON
+- MySQL
+- PetFinder API
 
 ## External Resources 
 
