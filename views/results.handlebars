@@ -20,9 +20,16 @@
           </a>
         </div>
         <div class="-ml-px flex w-0 flex-1">
-          <a href="" class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
-            Save
-          </a>
+          <form action="/favorite" method="POST">
+            <input type="hidden" name="name" value="{{dog.name}}">
+            <input type="hidden" name="breed" value="{{dog.breeds.primary}}">
+            <input type="hidden" name="age" value="{{dog.age}}">
+            <input type="hidden" name="gender" value="{{dog.gender}}">
+            <input type="hidden" name="photo" value="{{dog.photos.[0].medium}}">
+            <button type="submit" class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+              Save
+            </button>
+          </form>
         </div>
       </div>
     </div>

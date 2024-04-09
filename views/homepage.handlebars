@@ -1,75 +1,27 @@
-
 <!-- Header section text -->
 <div class="flex flex-col items-center mx-auto text-center max-w-3xl">
-  <h1 class="text-6xl font-bold text-emerald-700 mt-14">The search for your new<br>friend starts here.</h1>
-  <p class="w-2/3 mt-8">Looking to add a pup to your family? Enter the breed you are interested in below to
-    view dogs that are available now for adoption!
+  <h1 class="text-6xl font-bold text-emerald-700 mt-20">The search for your new<br
+    />friend starts here.</h1>
+  <p class="w-2/3 mt-8">Looking to add a pup to your family? Enter the breed you
+    are interested in below to view dogs that are available now for adoption!
   </p>
 </div>
 
-<!-- Breed input form - entered value should get passed to APIs -->
+<!-- Breed input form - entered value will get passed to API -->
 <div class="flex justify-center mt-8">
   <div class="items-center space-x-2">
-    <form id="breedTypeForm" action="/dogs">
+    <form action="/search" method="get">
       <label for="breedInput" class="leading-6 text-gray-900">Enter a Breed:</label>
-      <input type="text" name="breed" id="breedInput" class="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2" placeholder="Poodle">
-      <button type="submit" id="searchpets" class="bg-emerald-700 text-white border border-gray-400 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">Search</button>
+      <input
+        type="text"
+        name="breed"
+        class="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2"
+        placeholder="Poodle"
+      />
+      <button
+        type="submit"
+        class="bg-emerald-700 text-white border border-gray-400 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800"
+      >Search</button>
     </form>
   </div>
 </div>
-
-<!-- 3 dogs up for adoption will display here from the PetFinder API -->
-<section id="adoptionSection" class="hidden flex flex-col justify-center py-14">
-  <h3 id="adoptionHeader" class="hidden text-emerald-700 font-bold text-3xl text-center pb-12"></h3>
-  <div class="w-full flex justify-center">
-    <div class="w-3/5 max-w-6xl flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:space-x-4">
-
-      <!-- First card -->
-        <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-          <a id="dogLink1" href="" target="_blank" class="dog-link">
-            <img id="dogPhoto1" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo"/>
-          </a> 
-          <div class="p-4">
-        <h3 id="dogName1" class="text-lg font-bold"></h3>
-        <p id="dogBreed1" class="text-gray-600"></p>
-        <p id="dogGender1" class="text-gray-600"></p>
-        <p id="dogAge1" class="text-gray-600"></p>
-    </div>
-    <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5">
-    </button>
-</div>
-        <!-- Second card -->
-        <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-          <a id="dogLink2" href="" target="_blank" class="dog-link">
-            <img id="dogPhoto2" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
-          </a>            
-          <div class="p-4">
-                <h3 id="dogName2" class="text-lg font-bold"></h3>
-                <p id="dogBreed2" class="text-gray-600"></p>
-        <p id="dogGender2" class="text-gray-600"></p>
-        <p id="dogAge2" class="text-gray-600"></p>
-            </div>
-            <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5 " />
-    </button>
-        </div>
-
-        <!-- Third card -->
-        <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-          <a id="dogLink3" href="" target="_blank" class="dog-link">
-            <img id="dogPhoto3" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
-          </a>            
-          <div class="p-4">
-                <h3 id="dogName3" class="text-lg font-bold"></h3>
-                <p id="dogBreed3" class="text-gray-600"></p>
-        <p id="dogGender3" class="text-gray-600"></p>
-        <p id="dogAge3" class="text-gray-600"></p>
-            </div>
-            <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5">
-    </button>
-        </div>
-    </div>
-    </div>
-</section>

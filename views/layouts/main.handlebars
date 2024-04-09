@@ -27,8 +27,8 @@
       <div class="flex items-center">
         <div>
           {{#if loggedIn}}
-            <a class="font-semibold text-emerald-800" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="/logout" method="POST" style="display: none;"></form>
+            <a class="font-semibold text-emerald-800" href="/auth/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;"></form>
           {{else}}
             <a class="font-semibold text-emerald-800" href="/login">Login</a>
           {{/if}}
@@ -43,7 +43,7 @@
   </div>
 </nav>
 
-  <main>
+  <main class="pb-24">
     {{{ body }}}
   </main>
 
