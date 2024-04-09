@@ -40,7 +40,6 @@ router.get("/search", async (req, res) => {
       },
     });
     const data = await response.json();
-    // Now, instead of just sending JSON data, render a Handlebars view and pass the data
     res.render("results", { dogs: data.animals });
   } catch (error) {
     console.error("Search error:", error);
