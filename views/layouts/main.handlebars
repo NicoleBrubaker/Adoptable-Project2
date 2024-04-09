@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +17,7 @@
       <div class="flex">
         <div class="flex items-center">
           <a href="/">
-          <img class="h-10 w-auto" src="/icons/dog.png" alt="Dog Icon">
+            <img class="h-10 w-auto" src="/icons/dog.png" alt="Dog Icon">
           </a>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -27,24 +25,32 @@
         </div>
       </div>
       <div class="flex items-center">
-        <a href="/login">Login</a>
-      <div class="hidden sm:ml-6 sm:flex sm:items-center">
-        <a href="/user" class="relative p-1" id="allFavorites">
-         <img class="h-8 w-auto" src="/icons/user.png" alt="User Icon">
-        </a>
-    </div>
+        <div>
+          {{#if loggedIn}}
+            <a class="font-semibold text-emerald-800" href="/auth/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;"></form>
+          {{else}}
+            <a class="font-semibold text-emerald-800" href="/login">Login</a>
+          {{/if}}
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+          <a href="/user" class="relative p-1" id="allFavorites">
+            <img class="h-8 w-auto" src="/icons/user.png" alt="User Icon">
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 
-  <main>
+  <main class="pb-24">
     {{{ body }}}
   </main>
 
 <!-- Footer -->
 <footer class="bg-emerald-700 h-20 flex items-center fixed inset-x-0 bottom-0">
 <div class="mx-auto max-w-7xl px-4 text-center">
-      <p class="text-sm text-white">Dog Adoption Finder 2024</p>
+      <p class="text-sm text-white">Adoptable Group Project 2024</p>
       </div>
 </footer>
 </body>
