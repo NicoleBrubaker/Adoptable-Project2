@@ -1,0 +1,28 @@
+{{!-- page to enter a note about a saved favorite --}}
+<head>
+    <style>
+        .note-textarea {
+            width: 100%;
+            margin: 1em;
+            padding: .5em;
+        }
+        .save-btn {
+            background-color: #047857;
+            color: #fff;
+            padding: .5em;
+            border-radius: 5px;
+            width: 10em;
+        }
+    </style>
+</head>
+<div class="flex flex-col items-center mx-auto text-center max-w-3xl">
+  <h1 class="text-3xl font-bold text-emerald-700 mt-14">Add a note</h1>
+  </p>
+</div>
+<div class="flex flex-col items-center mx-auto text-center max-w-3xl">
+    <span></span>
+    <form action="/favorite/addnote/{{id}}" method="POST">
+        <input name="note" id="note" class="note-textarea" type="text" placeholder="Enter a note..." />
+        <button id="save-favorite-btn" class="save-btn" type="submit">Save</button>
+    </form>
+</div>

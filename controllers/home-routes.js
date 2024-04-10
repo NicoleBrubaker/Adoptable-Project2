@@ -17,7 +17,7 @@ router.get("/user", withAuth, async (req, res) => {
   try {
     const userId = req.session.userId;
     const userData = await User.findByPk(userId);
-    const user = userData.get({ plain: true }); (edited) 
+    const user = userData.get({ plain: true }); //(edited) 
     const favoritesData = await Favorite.findAll();
     const favorites = favoritesData.map((favorite) =>
       favorite.get({ plain: true })
@@ -48,5 +48,8 @@ router.get("/search", async (req, res) => {
     console.error("Search error:", error);
     res.status(500).send("Server error");
   }
+});
+router.post("/savenote", async(req, res) => {
+  
 });
 module.exports = router;
