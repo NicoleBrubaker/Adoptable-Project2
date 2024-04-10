@@ -40,7 +40,7 @@ Favorite.init(
     },
     profile_url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

@@ -40,10 +40,37 @@ router.get("/search", async (req, res) => {
       },
     });
     const data = await response.json();
-    res.render("results", { dogs: data.animals });
+    res.render("results", {
+      loggedIn: req.session.loggedIn,
+      dogs: data.animals,
+    });
   } catch (error) {
     console.error("Search error:", error);
     res.status(500).send("Server error");
   }
 });
+
+router.post("/favorite", withAuth, async (req, res) => {
+  try {
+   
+    const { id, name, breed, age, gender, photo } = req.body;
+    const userId = req.session.userId;
+
+    await Favorite.create({
+      dogId: id,
+      name,
+      breed,
+      age,
+      gender,
+      photo,
+      UserId: userId,
+    });
+
+    res.json({ message: "Dog favorited successfully" });
+  } catch (error) {
+    console.error("Error saving favorite:", error);
+    res.status(500).json({ message: "Error saving favorite" });
+  }
+});
+
 module.exports = router;

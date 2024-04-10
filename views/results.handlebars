@@ -7,7 +7,7 @@
         <div class="flex items-center space-x-3">
           <h3 class="truncate text-md font-medium text-gray-900">{{dog.name}}</h3>
         </div>
-        <p class="mt-1 truncate text-sm text-gray-500">{{dog.breed}}</p>
+        <p class="mt-1 truncate text-sm text-gray-500">{{dog.breeds.primary}}</p>
         <p class="mt-1 truncate text-sm text-gray-500">{{dog.gender}}</p>
         <p class="mt-1 truncate text-sm text-gray-500">{{dog.age}}</p>
       </div>
@@ -15,24 +15,50 @@
     <div>
       <div class="-mt-px flex divide-x divide-gray-200">
         <div class="flex w-0 flex-1">
-          <a href="{{dog.profile_url}}" class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+          <a href="{{dog.url}}" class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
             View full profile
           </a>
         </div>
         <div class="-ml-px flex w-0 flex-1">
-          <form action="/favorite" method="POST">
-            <input type="hidden" name="name" value="{{dog.name}}">
-            <input type="hidden" name="breed" value="{{dog.breeds.primary}}">
-            <input type="hidden" name="age" value="{{dog.age}}">
-            <input type="hidden" name="gender" value="{{dog.gender}}">
-            <input type="hidden" name="photo" value="{{dog.photos.[0].medium}}">
-            <button type="submit" class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
-              Save
-            </button>
-          </form>
+          <button onclick="favoriteDog
+          ('{{dog.id}}', 
+          '{{dog.name}}', 
+          '{{dog.breeds.primary}}', 
+          '{{dog.age}}', 
+          '{{dog.gender}}', 
+          '{{dog.photos.[0].medium}}')" 
+          class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
+            Favorite
+          </button>
         </div>
       </div>
     </div>
   </li>
  {{/each}}
 </ul>
+
+<script>
+function favoriteDog(id, name, breed, age, gender, photo) {
+  const dogData = { id, name, breed, age, gender, photo };
+
+  fetch('/favorite', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      {{!-- 'credentials': 'include' // Include credentials if your site is using session-based authentication --}}
+    },
+    body: JSON.stringify(dogData)
+  })
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to save favorite');
+    return response.json();
+  })
+  .then(data => {
+    // Handle the response. For example, display a message or update the button
+    console.log(data.message); // Assuming your server responds with a message
+    // You can also disable the button or change its text to indicate success
+  })
+  .catch(error => console.error('Error:', error));
+}
+</script>
