@@ -10,9 +10,21 @@ const favedata = [
     age: "Puppy",
     gender: "Male",
     profile_url: "petfinder.com",
+    note: ""
   },
 ];
+const existingFave = () => Favorite.findOne({
+  where: {
+    name: favedata.name
+  }
+});
 
-const seedFavorites = () => Favorite.bulkCreate(favedata);
+let seedFavorites;
+if (!existingFave) {
+  seedFavorites = () => Favorite.bulkCreate(favedata);
+}
+else {
+  seedFavorites = () => console.log('seed favorite exists');
+}
 
 module.exports = seedFavorites;
