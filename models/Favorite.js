@@ -42,6 +42,10 @@ Favorite.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    note: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   },
   {
     sequelize,

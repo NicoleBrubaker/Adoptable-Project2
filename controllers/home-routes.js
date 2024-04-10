@@ -15,6 +15,9 @@ router.get("/signup", async (req, res) => {
 });
 router.get("/user", withAuth, async (req, res) => {
   try {
+    const userId = req.session.userId;
+    const userData = await User.findByPk(userId);
+    const user = userData.get({ plain: true }); //(edited) 
     const favoritesData = await Favorite.findAll();
     const favorites = favoritesData.map((favorite) =>
       favorite.get({ plain: true })
