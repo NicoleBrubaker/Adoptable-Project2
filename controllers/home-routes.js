@@ -49,7 +49,5 @@ router.get("/search", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-router.post("/savenote", async(req, res) => {
-  
-});
+
 module.exports = router;
