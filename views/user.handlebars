@@ -13,7 +13,7 @@
   <p class="w-2/3 mt-2">Here are all pups you have saved in your search-
   </p>
 </div>
-<ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-10 m-6 max-w-5xl mx-auto">
+<ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-10 m-6 max-w-5xl mx-auto min-h-64">
   {{#each favorites as |favorite|}}
   <li class="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow max-w-80">
     <div class="flex w-full items-center justify-between space-x-4 p-6">
@@ -25,6 +25,9 @@
         <p class="mt-1 truncate text-sm text-gray-500">{{favorite.breed}}</p>
         <p class="mt-1 truncate text-sm text-gray-500">{{favorite.gender}}</p>
         <p class="mt-1 truncate text-sm text-gray-500">{{favorite.age}}</p>
+        {{#if favorite.profile_url}}
+        <a href="{{favorite.profile_url}}" class="mt-1 truncate text-sm text-emerald-600">View Profile</a>
+        {{/if}}
       </div>
     </div>
     {{#if favorite.note}}
