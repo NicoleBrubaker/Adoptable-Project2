@@ -15,11 +15,12 @@ const existingUser = () => User.findOne({
 });
 
 let seedUsers;
-if (!existingUser) {
-  seedUsers = () => User.bulkCreate(userdata);
-}
-else {
-  seedUsers = () => console.log('seed user exists');
-}
+seedUsers = () => User.bulkCreate(userdata);
+// if (!existingUser) {
+  
+// }
+// else {
+//   seedUsers = () => console.log('seed user exists');
+// }
 
 module.exports = seedUsers;

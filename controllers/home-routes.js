@@ -13,16 +13,21 @@ router.get("/login", async (req, res) => {
 router.get("/signup", async (req, res) => {
   res.render("signup");
 });
+
 router.get("/user", withAuth, async (req, res) => {
   try {
     const userId = req.session.userId;
     const userData = await User.findByPk(userId);
     const user = userData.get({ plain: true }); //(edited) 
-    const favoritesData = await Favorite.findAll();
+    const favoritesData = await Favorite.findAll({
+      where: { user_id: userId },
+      order: [["created_at", "DESC"]],
+    });
     const favorites = favoritesData.map((favorite) =>
       favorite.get({ plain: true })
     );
     res.render("user", {
+      user,
       favorites,
       loggedIn: req.session.loggedIn,
     });
@@ -30,6 +35,7 @@ router.get("/user", withAuth, async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
 router.get("/search", async (req, res) => {
   const breed = req.query.breed;
   try {
@@ -56,7 +62,7 @@ router.get("/search", async (req, res) => {
 router.post("/favorite", withAuth, async (req, res) => {
   try {
    
-    const { id, name, breed, age, gender, photo } = req.body;
+    const { id, name, breed, age, gender, url, photo } = req.body;
     const userId = req.session.userId;
 
     await Favorite.create({
@@ -66,7 +72,8 @@ router.post("/favorite", withAuth, async (req, res) => {
       age,
       gender,
       photo,
-      UserId: userId,
+      profile_url: url,
+      user_id: userId,
     });
 
     res.json({ message: "Dog favorited successfully" });

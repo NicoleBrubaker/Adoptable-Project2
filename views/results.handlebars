@@ -26,6 +26,7 @@
           '{{dog.breeds.primary}}', 
           '{{dog.age}}', 
           '{{dog.gender}}', 
+          '{{dog.url}}',
           '{{dog.photos.[0].medium}}')" 
           class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
             Favorite
@@ -38,15 +39,15 @@
 </ul>
 
 <script>
-function favoriteDog(id, name, breed, age, gender, photo) {
-  const dogData = { id, name, breed, age, gender, photo };
+function favoriteDog(id, name, breed, age, gender, url, photo) {
+  const dogData = { id, name, breed, age, gender, url, photo };
 
   fetch('/favorite', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      {{!-- 'credentials': 'include' // Include credentials if your site is using session-based authentication --}}
+    'credentials': 'include'
     },
     body: JSON.stringify(dogData)
   })
@@ -55,9 +56,7 @@ function favoriteDog(id, name, breed, age, gender, photo) {
     return response.json();
   })
   .then(data => {
-    // Handle the response. For example, display a message or update the button
-    console.log(data.message); // Assuming your server responds with a message
-    // You can also disable the button or change its text to indicate success
+    console.log(data.message);
   })
   .catch(error => console.error('Error:', error));
 }

@@ -5,8 +5,8 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
-const { Favorite, User } = require("./models");
-const seedAll = require('./seeds/index');
+// const { Favorite, User } = require("./models");
+// const seedAll = require('./seeds/index');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,15 +31,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-Favorite.sync({alter: true }).then(() => {
-  console.log('Favorite model syncd with db');
-})
+// Favorite.sync({alter: true }).then(() => {
+//   console.log('Favorite model syncd with db');
+// })
 
-User.sync({alter: true}).then(() => {
-  console.log('User model syncd with db');
-})
+// User.sync({alter: true}).then(() => {
+//   console.log('User model syncd with db');
+// })
 
-seedAll();
+// seedAll();
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
