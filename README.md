@@ -24,7 +24,9 @@ This pet adoption website has many unique proporties that the user can benifit f
 ### 🛠️ Installation and Setup 
 1. Clone the repository to your local machine. 
 2. Install necessary dependencies (if any).
-3. Run the application locally or deploy it using your preferred web server. 
+3. npm run seed to seed the database if testing locally
+4. npm run dev to run application on local host
+5. Run the application locally or deploy it using your preferred web server. 
 
 
 ### Clone 
@@ -35,8 +37,8 @@ This pet adoption website has many unique proporties that the user can benifit f
 
 ### Basic Stepts: 
 1. Open up the web application.
-2.  git@github.com:NicoleBrubaker/Adoptable-Project2.git
-3. 
+2. Clone git@github.com:NicoleBrubaker/Adoptable-Project2.git
+3. Navigate throughout the site to find and adopte your next pet!
 
 ## Technologies Used
 - HTML 
@@ -46,12 +48,15 @@ This pet adoption website has many unique proporties that the user can benifit f
 - JSON
 - MySQL
 - PetFinder API
+- Dog Breed API
 
 ## External Resources 
 - [PetFinder API] (https://www.petfinder.com/developers/) for adoption services. 
 - Icons Link: [Icons] (https://icons8.com/icons/)
 - [Tailwind] (https://tailwindui.com/?ref=top)
 - [MySql] (https://dev.mysql.com/downloads/mysql/) download link if needed. 
+- [Dog Breed NPM package] (https://www.npmjs.com/package/dog-breeds?activeTab=readme) ready to be installed when using application
+- [NPM] (https://www.npmjs.com/) npm package websites 
 
 
 ## License 
@@ -65,5 +70,5 @@ For support, queries, or suggestions, please open an issue in the repository or 
 
 ---
 
-*This ReadMe was last updated on Apr 6, 2024 @ 12:50pm.*
+*This ReadMe was last updated on Apr 10, 2024 @ 9:31pm.*
 
