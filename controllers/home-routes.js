@@ -7,13 +7,18 @@ router.get("/", (req, res) => {
     loggedIn: req.session.loggedIn,
   });
 });
+
+// used for user log in
 router.get("/login", async (req, res) => {
   res.render("login");
 });
+
+// used for user signup
 router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
+// the "user" page where favorites are displayed
 router.get("/user", withAuth, async (req, res) => {
   try {
     const userId = req.session.userId;
@@ -36,6 +41,7 @@ router.get("/user", withAuth, async (req, res) => {
   }
 });
 
+// using the petfinder api to search based on entered breed
 router.get("/search", async (req, res) => {
   const breed = req.query.breed;
   try {
@@ -59,6 +65,7 @@ router.get("/search", async (req, res) => {
   }
 });
 
+// adding a new favorite
 router.post("/favorite", withAuth, async (req, res) => {
   try {
    
@@ -81,6 +88,27 @@ router.post("/favorite", withAuth, async (req, res) => {
     console.error("Error saving favorite:", error);
     res.status(500).json({ message: "Error saving favorite" });
   }
+});
+
+// removing a favorite
+router.delete("/favorite/:id", withAuth, async (req, res) => {
+ try {
+   // Extracting favoriteId from the route parameters
+   const favoriteId = req.params.id;
+   console.log("Favorite ID:", favoriteId); // Log to verify it's received
+
+   const userId = req.session.userId;
+   const favorite = await Favorite.findOne({
+     where: { id: favoriteId, user_id: userId },
+   });
+
+   await favorite.destroy();
+   res.json({ message: "Favorite removed successfully." });
+ } catch (error) {
+   console.error(error);
+   res.status(500).send("An error occurred.");
+ }
+
 });
 
 module.exports = router;

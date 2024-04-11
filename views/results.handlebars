@@ -2,7 +2,11 @@
   {{#each dogs as |dog|}}
   <li class="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow max-w-80">
     <div class="flex w-full items-center justify-between space-x-4 p-6">
+     {{#if dog.photos}}
       <img class="h-28 w-28 flex-shrink-0 rounded-full bg-gray-300" src="{{dog.photos.[0].medium}}" alt="{{dog.name}}">
+      {{else}}
+      <img src="/icons/dog.png" alt="Dog Icon">
+      {{/if}}
       <div class="flex-1 truncate pl-4">
         <div class="flex items-center space-x-3">
           <h3 class="truncate text-md font-medium text-gray-900">{{dog.name}}</h3>
@@ -20,8 +24,10 @@
           </a>
         </div>
         <div class="-ml-px flex w-0 flex-1">
-          <button onclick="favoriteDog
-          ('{{dog.id}}', 
+          <button id="favorite-btn-{{dog.id}}" 
+          onclick="
+          favoriteDog(this, 
+          '{{dog.id}}', 
           '{{dog.name}}', 
           '{{dog.breeds.primary}}', 
           '{{dog.age}}', 
@@ -39,24 +45,24 @@
 </ul>
 
 <script>
-function favoriteDog(id, name, breed, age, gender, url, photo) {
+function favoriteDog(button, id, name, breed, age, gender, url, photo) {
   const dogData = { id, name, breed, age, gender, url, photo };
 
-  fetch('/favorite', {
+   fetch('/favorite', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-    'credentials': 'include'
     },
+    credentials: 'include',
     body: JSON.stringify(dogData)
   })
   .then(response => {
-    if (!response.ok) throw new Error('Failed to save favorite');
+    if (response.ok) {
+      button.classList.toggle('font-bold');
+      button.classList.toggle('text-emerald-500');
+    }
     return response.json();
-  })
-  .then(data => {
-    console.log(data.message);
   })
   .catch(error => console.error('Error:', error));
 }
