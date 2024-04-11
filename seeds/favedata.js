@@ -21,10 +21,5 @@ const existingFave = () => Favorite.findOne({
 
 let seedFavorites;
 seedFavorites = () => Favorite.bulkCreate(favedata);
-// if (!existingFave) {
-// }
-// else {
-//   seedFavorites = () => console.log('seed favorite exists');
-// }
 
 module.exports = seedFavorites;
