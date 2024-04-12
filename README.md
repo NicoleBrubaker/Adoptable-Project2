@@ -17,7 +17,7 @@ This pet adoption website has many unique proporties that the user can benifit f
 
 ## 📚 Useful Links 
 - **Repository**: [GitHub] (https://github.com/NicoleBrubaker/Adoptable-Project2)
-- **Live Application**: [Adoptable Pets] ()
+- **Live Application**: [Adoptable Pets] (https://adoptable-c92c7eb53b92.herokuapp.com/)
 
 ## Usage 
 
